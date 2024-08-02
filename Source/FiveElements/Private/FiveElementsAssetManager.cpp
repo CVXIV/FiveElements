@@ -1,7 +1,6 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "FiveElementsAssetManager.h"
+
+#include "CustomGameplayTags.h"
 
 UFiveElementsAssetManager& UFiveElementsAssetManager::Get() {
 	check(GEngine)
@@ -12,4 +11,6 @@ UFiveElementsAssetManager& UFiveElementsAssetManager::Get() {
 
 void UFiveElementsAssetManager::StartInitialLoading() {
 	Super::StartInitialLoading();
+
+	FCustomGameplayTags::InitializeNativeGameplayTags();
 }
