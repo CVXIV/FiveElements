@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "AbilityTypes.h"
 #include "GameFramework/Actor.h"
 #include "BaseProjectile.generated.h"
 
@@ -19,6 +20,10 @@ protected:
 	UFUNCTION()
 	virtual void OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
+public:
+	UPROPERTY(BlueprintReadWrite, /*Replicated,*/ meta = (ExposeOnSpawn = true))
+	FDamageEffectParams DamageEffectParams;
+	
 protected:
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<class USphereComponent> SphereComponent;

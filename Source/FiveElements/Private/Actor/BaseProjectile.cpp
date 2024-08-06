@@ -3,6 +3,7 @@
 
 #include "Actor/BaseProjectile.h"
 
+#include "AbilitySystemBlueprintLibrary.h"
 #include "NiagaraComponent.h"
 #include "NiagaraFunctionLibrary.h"
 #include "Components/SphereComponent.h"
@@ -43,5 +44,11 @@ void ABaseProjectile::BeginPlay() {
 void ABaseProjectile::OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) {
 	SphereComponent->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	NiagaraLoopComponent->Deactivate();
+
+	if (UAbilitySystemComponent* Asc = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(OtherActor)) {
+		DamageEffectParams.TargetAbilitySystemComponent = Asc;
+		//UAuraAbilitySystemLibrary::ApplyGameplayEffect(DamageEffectParams);
+	}
+	
 	Destroy();
 }
