@@ -18,7 +18,7 @@ public:
 
 protected:
 	UPROPERTY(VisibleAnywhere)
-	TObjectPtr<class UCustomAbilitySystemComponent> AbilitySystemComponent;
+	TObjectPtr<class UPlayerAbilitySystemComponent> AbilitySystemComponent;
 
 	UPROPERTY()
 	TObjectPtr<class UCustomAttributeSet> AttributeSet;

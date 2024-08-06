@@ -36,5 +36,5 @@ private:
 	TObjectPtr<class UInputConfig> InputConfig;
 
 	UPROPERTY()
-	TObjectPtr<class UCustomAbilitySystemComponent> AbilitySystemComponent;
+	TObjectPtr<class UPlayerAbilitySystemComponent> AbilitySystemComponent;
 };

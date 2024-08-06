@@ -3,13 +3,13 @@
 
 #include "Player/CannonPlayerState.h"
 
-#include "AbilitySystem/CustomAbilitySystemComponent.h"
 #include "AbilitySystem/CustomAttributeSet.h"
+#include "AbilitySystem/PlayerAbilitySystemComponent.h"
 
 ACannonPlayerState::ACannonPlayerState() {
 	PrimaryActorTick.bCanEverTick = false;
 
-	AbilitySystemComponent = CreateDefaultSubobject<UCustomAbilitySystemComponent>("AbilitySystemComponent");
+	AbilitySystemComponent = CreateDefaultSubobject<UPlayerAbilitySystemComponent>("AbilitySystemComponent");
 	AttributeSet = CreateDefaultSubobject<UCustomAttributeSet>("AttributeSet");
 }
 

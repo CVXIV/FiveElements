@@ -5,7 +5,7 @@
 
 #include "AbilitySystemBlueprintLibrary.h"
 #include "EnhancedInputSubsystems.h"
-#include "AbilitySystem/CustomAbilitySystemComponent.h"
+#include "AbilitySystem/PlayerAbilitySystemComponent.h"
 #include "Input/CustomEnhancedInputComponent.h"
 
 void ACustomPlayerController::BeginPlay() {
@@ -31,7 +31,7 @@ void ACustomPlayerController::SetupInputComponent() {
 void ACustomPlayerController::OnPossess(APawn* InPawn) {
 	Super::OnPossess(InPawn);
 
-	AbilitySystemComponent = Cast<UCustomAbilitySystemComponent>(UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(InPawn));
+	AbilitySystemComponent = Cast<UPlayerAbilitySystemComponent>(UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(InPawn));
 }
 
 void ACustomPlayerController::AbilityInputTagPressed(const FGameplayTag InputTag) {

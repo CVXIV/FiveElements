@@ -11,11 +11,5 @@ class FIVEELEMENTS_API UCustomAbilitySystemComponent : public UAbilitySystemComp
 	GENERATED_BODY()
 
 public:
-	void AbilityInputTagPressed(const FGameplayTag& InputTag);
-
-	void AbilityInputTagHeld(const FGameplayTag& InputTag);
-
-	void AbilityInputTagReleased(const FGameplayTag& InputTag);
-
 	void AddAbility(const TSubclassOf<UGameplayAbility>& AbilityClass);
 };
