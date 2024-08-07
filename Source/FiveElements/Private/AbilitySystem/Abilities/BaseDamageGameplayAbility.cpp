@@ -12,10 +12,7 @@ FDamageEffectParams UBaseDamageGameplayAbility::MakeDamageEffectParamsFromClassD
 	Params.DamageGameplayEffectClass = DamageEffectClass;
 	Params.SourceAbilitySystemComponent = GetAbilitySystemComponentFromActorInfo();
 	Params.TargetAbilitySystemComponent = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(Target);
-	for (const TTuple<FGameplayTag, FDamageTypeInfo>& Pair : DamageTypes) {
-		Params.DamageTypesKeys.Add(Pair.Key);
-		Params.DamageTypesValues.Add(Pair.Value);
-	}
+	Params.DamageTypes = DamageTypes;
 	Params.AbilityLevel = GetAbilityLevel();
 	Params.DeathImpulseMagnitude = DeathImpulseMagnitude * 1000.f;
 	Params.KnockBackForceMagnitude = KnockBackForceMagnitude * 1000.f;

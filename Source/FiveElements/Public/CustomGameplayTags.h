@@ -26,6 +26,17 @@ public:
 
 	FGameplayTag InputTag_RMB;
 
+	// Element Tag
+	FGameplayTag Element_Golden;
+
+	FGameplayTag Element_Wood;
+
+	FGameplayTag Element_Water;
+
+	FGameplayTag Element_Fire;
+
+	FGameplayTag Element_Soil;
+
 private:
 	static FCustomGameplayTags S_GameplayTags;
 };

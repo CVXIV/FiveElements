@@ -31,8 +31,8 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TSubclassOf<UGameplayEffect> DamageEffectClass;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Damage", meta = (DisplayName = "伤害类型", Categories = "Damage"))
-	TMap<FGameplayTag, FDamageTypeInfo> DamageTypes;
+	UPROPERTY(EditDefaultsOnly, Category = "Damage", meta = (DisplayName = "伤害类型"))
+	TArray<FDamageTypeInfo> DamageTypes;
 
 	UPROPERTY(EditDefaultsOnly, meta = (ClampMin = 0), Category = "Damage")
 	float DeathImpulseMagnitude = 0;

@@ -9,6 +9,7 @@
 #include "Components/SphereComponent.h"
 #include "FiveElements/FiveElements.h"
 #include "GameFramework/ProjectileMovementComponent.h"
+#include "Tools/CustomAbilitySystemLibrary.h"
 
 ABaseProjectile::ABaseProjectile() {
 	PrimaryActorTick.bCanEverTick = false;
@@ -47,8 +48,8 @@ void ABaseProjectile::OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, 
 
 	if (UAbilitySystemComponent* Asc = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(OtherActor)) {
 		DamageEffectParams.TargetAbilitySystemComponent = Asc;
-		//UAuraAbilitySystemLibrary::ApplyGameplayEffect(DamageEffectParams);
+		UCustomAbilitySystemLibrary::ApplyGameplayEffect(DamageEffectParams);
 	}
-	
+
 	Destroy();
 }

@@ -3,7 +3,10 @@
 
 #include "Pawn/BaseEnemy.h"
 
+#include "CustomGameplayTags.h"
 #include "NiagaraComponent.h"
+#include "AbilitySystem/CustomAbilitySystemComponent.h"
+#include "AbilitySystem/CustomAttributeSet.h"
 #include "Components/SphereComponent.h"
 #include "FiveElements/FiveElements.h"
 
@@ -29,4 +32,26 @@ ABaseEnemy::ABaseEnemy() {
 
 	NiagaraComponent = CreateDefaultSubobject<UNiagaraComponent>("NiagaraLoop");
 	NiagaraComponent->SetupAttachment(SkeletalMeshComponent);
+
+	AttributeSet = CreateDefaultSubobject<UCustomAttributeSet>("AttributeSet");
+
+	AbilitySystemComponent = CreateDefaultSubobject<UCustomAbilitySystemComponent>("AbilitySystemComponent");
+}
+
+void ABaseEnemy::BeginPlay() {
+	Super::BeginPlay();
+
+	if (ElementTypes.Num() > CurrentElementTypeIndex) {
+		OnElementTypeChange(ElementTypes[CurrentElementTypeIndex]);
+	}
+}
+
+void ABaseEnemy::OnElementTypeChange(const FGameplayTag& ElementType) {
+	if (ElementType.MatchesTagExact(FCustomGameplayTags::Get().Element_Golden)) {
+	} else if (ElementType.MatchesTagExact(FCustomGameplayTags::Get().Element_Wood)) {
+	} else if (ElementType.MatchesTagExact(FCustomGameplayTags::Get().Element_Water)) {
+	} else if (ElementType.MatchesTagExact(FCustomGameplayTags::Get().Element_Fire)) {
+		GEngine->AddOnScreenDebugMessage(-1, 2, FColor::Red, TEXT("!!!!"));
+	} else if (ElementType.MatchesTagExact(FCustomGameplayTags::Get().Element_Soil)) {
+	}
 }

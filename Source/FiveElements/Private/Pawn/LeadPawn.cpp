@@ -4,6 +4,7 @@
 #include "Pawn/LeadPawn.h"
 
 #include "AbilitySystem/CustomAbilitySystemComponent.h"
+#include "AbilitySystem/CustomAttributeSet.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Player/CannonPlayerState.h"
 
@@ -71,6 +72,8 @@ void ALeadPawn::InitAbilityActorInfo() {
 	check(AbilitySystemComponent)
 
 	AbilitySystemComponent->InitAbilityActorInfo(CannonPlayerState, this);
+
+	AttributeSet = CastChecked<UCustomAttributeSet>(CannonPlayerState->GetAttributeSet());
 }
 
 void ALeadPawn::AddCharacterAbilities() const {

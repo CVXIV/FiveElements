@@ -7,6 +7,7 @@
 #include "GameFramework/Pawn.h"
 #include "PawnBase.generated.h"
 
+
 UCLASS(Abstract)
 class FIVEELEMENTS_API APawnBase : public APawn, public IAbilitySystemInterface {
 	GENERATED_BODY()
@@ -16,7 +17,12 @@ public:
 
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 
+	class UAttributeSet* GetAttributeSet() const;
+
 protected:
+	UPROPERTY()
+	TObjectPtr<class UCustomAttributeSet> AttributeSet;
+
 	UPROPERTY()
 	TObjectPtr<class UCustomAbilitySystemComponent> AbilitySystemComponent;
 };

@@ -16,3 +16,7 @@ ACannonPlayerState::ACannonPlayerState() {
 UAbilitySystemComponent* ACannonPlayerState::GetAbilitySystemComponent() const {
 	return AbilitySystemComponent;
 }
+
+UAttributeSet* ACannonPlayerState::GetAttributeSet() const {
+	return AttributeSet;
+}

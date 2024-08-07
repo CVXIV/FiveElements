@@ -16,6 +16,8 @@ public:
 
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 
+	class UAttributeSet* GetAttributeSet() const;
+
 protected:
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<class UPlayerAbilitySystemComponent> AbilitySystemComponent;

@@ -8,6 +8,8 @@
 #include "ScalableFloat.h"
 #include "AbilityTypes.generated.h"
 
+class UGameplayEffect;
+
 class UAbilitySystemComponent;
 
 class UBaseDamageGameplayAbility;
@@ -15,6 +17,9 @@ class UBaseDamageGameplayAbility;
 USTRUCT(BlueprintType)
 struct FDamageTypeInfo {
 	GENERATED_BODY()
+
+	UPROPERTY(EditDefaultsOnly, meta = (Categories = "Element"))
+	FGameplayTag ElementType;
 
 	UPROPERTY(EditDefaultsOnly)
 	FScalableFloat Damage;
@@ -77,7 +82,7 @@ struct FDamageEffectParams {
 	TObjectPtr<UObject> WorldContextObject = nullptr;
 
 	UPROPERTY()
-	TSubclassOf<UBaseDamageGameplayAbility> DamageGameplayEffectClass = nullptr;
+	TSubclassOf<UGameplayEffect> DamageGameplayEffectClass = nullptr;
 
 	UPROPERTY()
 	TObjectPtr<AActor> Instigator = nullptr;
@@ -89,10 +94,7 @@ struct FDamageEffectParams {
 	TObjectPtr<UAbilitySystemComponent> TargetAbilitySystemComponent;
 
 	UPROPERTY()
-	TArray<FGameplayTag> DamageTypesKeys;
-
-	UPROPERTY()
-	TArray<FDamageTypeInfo> DamageTypesValues;
+	TArray<FDamageTypeInfo> DamageTypes;
 
 	UPROPERTY()
 	float AbilityLevel = 1.f;
